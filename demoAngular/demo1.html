@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/angular.min.js"></script>
+ 	<script src="js/controller.js"></script>
+</head>
+<body  ng-controller="PhoneListCtrl">
+	关键词<input type="text" ng-model = "query"/>
+	
+	排序<select ng-model="orderProp">
+		
+		<option value="age">年份</option>
+	</select>
+	 <ul>
+	 	<li ng-repeat = "phone in phones | filter:query | orderBy:orderProp">
+	 		{{phone.name}}
+	 		<p>{{phone.snippet}}</p>
+	 		<p>{{phone.age}}</p>
+	 	</li>
+	 </ul>
+</body>
+</html>
